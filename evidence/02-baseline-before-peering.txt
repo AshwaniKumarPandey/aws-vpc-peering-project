@@ -1,0 +1,29 @@
+# BASELINE (before peering) 2026-11-01T09:32:40+00:00
+## ssh ewb-bastion
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+ip-10-10-1-10.eu-north-1.compute.internal
+10.10.1.10 
+## ssh ewb-app-a
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+ip-10-10-2-10.eu-north-1.compute.internal
+10.10.2.10 
+## App-A -> App-B ping (EXPECTED: no replies / 100% packet loss)
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
+
+--- 10.20.1.10 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3143ms
+
+(a non-zero result above is expected)

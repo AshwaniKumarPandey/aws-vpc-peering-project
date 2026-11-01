@@ -1,0 +1,34 @@
+# CONTROLLED FAILURE 2026-11-01T09:36:16+00:00
+## 1) Remove ICMP Echo rule (10.10.2.10/32) from ewb-sg-app-b
+rule removed
+## 2) App-A -> App-B ping (EXPECT FAILURE)
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
+
+--- 10.20.1.10 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3097ms
+
+
+## 3) Restore the exact rule
+rule restored
+## 4) App-A -> App-B ping again (EXPECT RECOVERY)
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
+64 bytes from 10.20.1.10: icmp_seq=1 ttl=127 time=0.201 ms
+64 bytes from 10.20.1.10: icmp_seq=2 ttl=127 time=0.189 ms
+64 bytes from 10.20.1.10: icmp_seq=3 ttl=127 time=0.204 ms
+64 bytes from 10.20.1.10: icmp_seq=4 ttl=127 time=0.189 ms
+
+--- 10.20.1.10 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3145ms
+rtt min/avg/max/mdev = 0.189/0.195/0.204/0.006 ms

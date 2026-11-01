@@ -1,0 +1,5 @@
+# CLEANUP VERIFICATION 2026-11-01T10:25:33+00:00
+VPCs with project tag (expect empty):
+Non-terminated instances with project tag (expect empty):
+Volumes with project tag (expect empty):
+Elastic IPs in region (expect none from this project):
